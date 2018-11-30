@@ -19,8 +19,15 @@ devtools::install_github("rstudio/keras")
 # or
 install.packages("keras")
 
+# https://irudnyts.github.io/custom-set-up-of-keras-and-tensorflow-for-r-and-python/
+# https://tensorflow.rstudio.com/tensorflow/articles/installation.html
+
+Sys.setenv(TENSORFLOW_PYTHON="C:/Python36/python")
+use_python("C:/Python36/python3.exe")
+
 # Then run install_keras() function to install anaconda python, tensorflow, and keras.
-keras::install_keras()
+install_keras()
+install_tensorflow()
 # Or if you have a GPU and have followed these instructions:
 # https://tensorflow.rstudio.com/tools/local_gpu.html
 # NOTE: tensorflow seems to require CUDA 9.0 currently; 9.2 for example will not work.
@@ -88,7 +95,7 @@ Grayscale pixel values that range from between 0 (black end of the color spectru
 
 ```{r}
 # rescale
-x_train <- x_train / 255
+x_train <- x_train / 255 # scaled to values between 0 and 1
 x_test <- x_test / 255
 ```
 
